@@ -4,19 +4,19 @@
 <div class="main">
   <div class="main-containerr">
     <div class="categories">
-      <a href="/home?category=Outdoors">
+      <a href="/home?category=Outdoors" class="out">
         <i class="fa-solid fa-sun fa-1x"></i>
         <p>Outdoors</p>
       </a>
-      <a href="/home?category=Indoors">
+      <a href="/home?category=Indoors" class="in">
         <i class="fa-solid fa-leaf fa-1x"></i>
         <p>Indoors</p>
       </a>
-      <a href="/home?category=Seeds">
+      <a href="/home?category=Seeds" class="seed">
         <i class="fa-solid fa-seedling fa-1x"></i>
         <p>Seeds</p>
       </a>
-      <a href="/home?category=Fertilizers">
+      <a href="/home?category=Fertilizers" class="fer">
         <i class="fa-solid fa-droplet fa-1x"></i>
         <p>Fertilizers</p>
       </a>
