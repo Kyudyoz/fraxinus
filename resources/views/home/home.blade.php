@@ -34,7 +34,11 @@
 </div>
 @endif
     <div class="categories">
-      <a href="/new">
+      <a href="" class="comm">
+        <i class="fa-solid fa-users fa-2x"></i>
+        <p>Community</p>
+      </a>
+      <a href="/new" class="sell">
         <i class="fa-solid fa-circle-plus fa-2x"></i>
         <p>Sell Product</p>
       </a>
