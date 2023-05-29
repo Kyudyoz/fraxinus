@@ -1,13 +1,13 @@
 @include('partials.header')
 @include('partials.navbar')
 
-<h1 class="text-center">Wishlist</h1>
-    @if (session()->has('berhasil'))
+@if (session()->has('berhasil'))
 
-    <div class="alert alert-success col-lg-12" role="alert">
-      {{ session('berhasil') }}
-    </div>
-    @endif
+<div class="alert alert-success col-lg-12" role="alert">
+  {{ session('berhasil') }}
+</div>
+@endif
+<h1 class="text-center">Wishlist</h1>
     @if ($wishlists->isEmpty())
         <h3 class="text-center">Belum ada produk dalam Wishlist Anda.</h3>
         @include('partials.footer')

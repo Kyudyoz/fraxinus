@@ -6,9 +6,11 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+    
     public function show($id)
     {
         if (auth()->check()) {
@@ -34,14 +36,36 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $product = Product::find($id);
-        $product->update($request->all());
-        return redirect('/home');
+        $rules = [
+            'name' => 'required|max:255',
+            'category' => 'required',
+            'price' => 'required',
+            'image'=> 'required|image|file|max:1024',
+            'description' => 'required'
+        ];
+        $validatedData = $request->validate($rules);
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('product-images');
+        }
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Product::where('id', $id)->update($validatedData);
+        return redirect('/home')->with('berhasil', 'Product has been updated!');
     }
 
     public function create()
     {
-        return view('home.new');
+        if (auth()->check()) {
+            $wishlistCount = Wishlist::where('user_id', auth()->user()->id)->count();
+        } else {
+            $wishlistCount = "";
+        }
+        return view('home.new',[
+            'wishlistCount' => $wishlistCount
+        ]);
     }
 
     public function store(Request $request)
@@ -50,11 +74,12 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'category' => 'required',
             'price' => 'required',
-            'image'=> 'required',
+            'image'=> 'required|image|file|max:1024',
             'description' => 'required'
         ]);
-
+        $validatedData['image'] = $request->file('image')->store('product-images');
         $validatedData['user_id'] = auth()->user()->id;
+        
         Product::create($validatedData);
         return redirect('/home')->with('berhasil', 'New product has been added!');
     }
@@ -62,7 +87,10 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
+        if ($product->image) {
+            Storage::delete($product->image);
+        }
         $product->delete();
-        return redirect('/home');
+        return redirect('/home')->with('berhasil', 'Product has been removed!');
     }
 }

@@ -3,6 +3,18 @@
 
 <div class="main">
   <div class="main-containerr">
+    @if (session()->has('berhasil'))
+
+    <div class="alert alert-success col-lg-12" role="alert">
+      {{ session('berhasil') }}
+    </div>
+    @endif
+    @if (session()->has('gagal'))
+
+<div class="alert alert-danger col-lg-12" role="alert">
+  {{ session('gagal') }}
+</div>
+@endif
     <div class="categories">
       <a href="/home?category=Outdoors" class="out">
         <i class="fa-solid fa-sun fa-1x"></i>
@@ -21,20 +33,9 @@
         <p>Fertilizers</p>
       </a>
     </div>
-    @if (session()->has('berhasil'))
-
-    <div class="alert alert-success col-lg-12" role="alert">
-      {{ session('berhasil') }}
-    </div>
-    @endif
-    @if (session()->has('gagal'))
-
-<div class="alert alert-danger col-lg-12" role="alert">
-  {{ session('gagal') }}
-</div>
-@endif
+    
     <div class="categories">
-      <a href="" class="comm">
+      <a href="/posts" class="comm">
         <i class="fa-solid fa-users fa-2x"></i>
         <p>Community</p>
       </a>
@@ -52,7 +53,7 @@
           <div class="col-md-4 mb-2">
           <a class="nav-link" href="/show/{{ $p->id }}">
             <div class="card item" style="overflow:hidden;">
-              <img src="{{ $p->image }}" alt="img" class="card-img-top" style="min-height:200px;max-height:200px;"/>
+              <img src="{{ asset('storage/' . $p->image) }}" alt="img" class="card-img-top" style="min-height:200px;max-height:200px;"/>
             
             <div class="card-body">
               <h4 class="card-title">{{ $p->name }}</h4>
@@ -60,7 +61,7 @@
               <hr />
               <h5 class="card-text">{{ $p->category }}</h5>
               <p class="card-text">{{ $p->user->name }}</p>
-              <p class="card-text" style="max-height: 50px; overflow:hidden;display: -webkit-box;
+              <p class="card-text" style="min-height: 50px;max-height:50px; overflow:hidden;display: -webkit-box;
               -webkit-line-clamp: 2;
               -webkit-box-orient: vertical; text-overflow:ellipsis; ">{{ $p->description }}</p>
             </div>

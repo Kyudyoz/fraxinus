@@ -51,7 +51,6 @@ class DatabaseSeeder extends Seeder
               'user_id'=>1,
               'price'=> '25000',
               'category'=> "Outdoors",
-              'image'=> "https://upload.wikimedia.org/wikipedia/commons/1/17/Hibiskus_rosa-sinensis_-_Kwiat.JPG",
               'description'=>
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates repellendus ducimus maxime esse architecto nobis nulla, nostrum cupiditate aut voluptatem eveniet repudiandae totam dicta harum obcaecati commodi voluptatum, amet asperiores porro. Architecto eum veritatis consequatur, a, corporis obcaecati sed ex, accusamus alias voluptates nam nemo tempora maiores inventore explicabo!",
           ]);
@@ -60,7 +59,6 @@ class DatabaseSeeder extends Seeder
               'user_id'=>2,
               'price'=> '15000',
               'category'=> "Indoors",
-              'image'=> "https://akcdn.detik.net.id/community/media/visual/2023/01/18/bunga-mawar_169.png?w=620",
               'description'=>
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates repellendus ducimus maxime esse architecto nobis nulla, nostrum cupiditate aut voluptatem eveniet repudiandae totam dicta harum obcaecati commodi voluptatum, amet asperiores porro. Architecto eum veritatis consequatur, a, corporis obcaecati sed ex, accusamus alias voluptates nam nemo tempora maiores inventore explicabo!",
           ]);
@@ -69,7 +67,6 @@ class DatabaseSeeder extends Seeder
               'user_id'=>2,
               'price'=> '25000',
               'category'=> "Outdoors",
-              'image'=> "https://akcdn.detik.net.id/community/media/visual/2023/01/18/bunga-melati_169.png?w=620",
               'description'=>
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates repellendus ducimus maxime esse architecto nobis nulla, nostrum cupiditate aut voluptatem eveniet repudiandae totam dicta harum obcaecati commodi voluptatum, amet asperiores porro. Architecto eum veritatis consequatur, a, corporis obcaecati sed ex, accusamus alias voluptates nam nemo tempora maiores inventore explicabo!",
           ]);
@@ -78,7 +75,6 @@ class DatabaseSeeder extends Seeder
               'user_id'=>3,
               'price'=> '35000',
               'category'=> "Indoors",
-              'image'=> "https://akcdn.detik.net.id/community/media/visual/2022/09/02/858819590_169.jpeg?w=620",
               'description'=>
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates repellendus ducimus maxime esse architecto nobis nulla, nostrum cupiditate aut voluptatem eveniet repudiandae totam dicta harum obcaecati commodi voluptatum, amet asperiores porro. Architecto eum veritatis consequatur, a, corporis obcaecati sed ex, accusamus alias voluptates nam nemo tempora maiores inventore explicabo!",
           ]);

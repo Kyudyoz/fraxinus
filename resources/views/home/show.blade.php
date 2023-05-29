@@ -5,7 +5,7 @@
 <div class="itemz-desc showz">
   <div class="itemz-desc-containerr">
     <div class="box1">
-      <img src="{{ $product->image }}" alt="img" style="height: 100%; width:100%" />
+      <img src="{{ asset('storage/' . $product->image) }}" alt="img" style="height: 100%; width:100%" />
     </div>
     <div class="box2">
       <h1>{{ $product->name }}</h1>

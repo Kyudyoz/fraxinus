@@ -10,7 +10,7 @@
               type="text"
               name="search"
               id="search"
-              placeholder="Search here..."
+              placeholder="Search product..."
               autocomplete="off"
             />
             <button type="submit">

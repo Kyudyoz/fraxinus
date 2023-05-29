@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
@@ -21,7 +22,7 @@ Route::post('/signout', [LoginController::class, 'logout']);
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/show/{id}', [ProductController::class, 'show']);
+Route::get('/show/{id}', [ProductController::class, 'show'])->middleware('auth');
 
 Route::get('/show/{id}/edit', [ProductController::class, 'edit']);
 
@@ -40,3 +41,7 @@ Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy']);
 Route::post('/wishlist/{id}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add')->middleware('auth');
 
 Route::get('/user', [HomeController::class, 'user'])->middleware('auth');
+
+//posts
+
+Route::get('/posts', [PostController::class, 'index']);
