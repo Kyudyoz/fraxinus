@@ -18,7 +18,7 @@ class WishlistController extends Controller
             ->first();
 
         if ($existingWishlist) {
-            return redirect('/home')->with('gagal', 'Produk sudah ada di Wishlist anda');
+            return redirect('/home')->with('gagal', 'Product already exists in your wishlist');
         }
 
         // Tambahkan produk ke Wishlist pengguna
@@ -27,12 +27,12 @@ class WishlistController extends Controller
             'user_id' => $user->id,
         ]);
 
-        return redirect('/home')->with('berhasil', 'Produk berhasil ditambahkan ke wishlist anda');
+        return redirect('/home')->with('berhasil', 'Product has been added to your wishlist');
     }
     public function destroy($id)
     {
         $wishlist = Wishlist::find($id);
         $wishlist->delete();
-        return redirect('/wishlist')->with('berhasil', 'Produk berhasil dihapus dari wishlist anda');
+        return redirect('/wishlist')->with('berhasil', 'Product has been deleted from your wishlist');
     }
 }

@@ -27,19 +27,17 @@
         <button type="submit"><i class="fa-solid fa-heart"></i>Wishlist</button>
       </div>
       </form>
-      @endif
-      @auth        
+      @endif     
       @if (auth()->user()->name == $product->user->name)
       <div class="actions">
         <form action="/show/{{ $product->id }}" method="post">
             @method('delete')
             @csrf
-          <button type="submit">Delete Product</button>
+          <button type="submit" onclick="return confirm('Are You Sure?')">Delete Product</button>
         </form>
       </div>
       <a href="/show/{{ $product->id }}/edit" class="mt-3">Edit This Product</a>
       @endif
-      @endauth
 
       <a href="/home" class="mt-3">All Products</a>
     </div>

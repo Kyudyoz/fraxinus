@@ -51,8 +51,12 @@ class User extends Authenticatable
         return $this->hasMany(Product::class);
     }
 
-    public function wishlists(): HasMany
+    public function wishlists()
     {
         return $this->hasMany(Wishlist::class);
+    }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

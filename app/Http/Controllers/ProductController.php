@@ -40,7 +40,7 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'category' => 'required',
             'price' => 'required',
-            'image'=> 'required|image|file|max:1024',
+            'image'=> 'image|file|max:1024',
             'description' => 'required'
         ];
         $validatedData = $request->validate($rules);

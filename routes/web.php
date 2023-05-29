@@ -45,3 +45,15 @@ Route::get('/user', [HomeController::class, 'user'])->middleware('auth');
 //posts
 
 Route::get('/posts', [PostController::class, 'index']);
+
+Route::get('/create', [PostController::class, 'create'])->middleware('auth');
+
+Route::post('/store', [PostController::class, 'store']);
+
+Route::get('/posts/show/{id}', [PostController::class, 'show']);
+
+Route::get('/posts/show/{id}/edit', [PostController::class, 'edit']);
+
+Route::put('/posts/show/{id}/edit/update', [PostController::class, 'update']);
+
+Route::delete('/posts/show/delete/{id}', [PostController::class, 'destroy']);

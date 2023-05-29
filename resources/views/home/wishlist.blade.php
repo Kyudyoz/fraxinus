@@ -27,7 +27,7 @@
                 </form>
             <a class="nav-link" href="/show/{{ $p->product->id }}" >
               <div class="card item" style="overflow:hidden;">
-                <img src="{{ $p->product->image }}" alt="img" class="card-img-top" style="min-height:200px;max-height:200px;"/>
+                <img src="{{ asset('storage/'.$p->product->image) }}" alt="img" class="card-img-top" style="min-height:200px;max-height:200px;"/>
               
               <div class="card-body">
                 <h4 class="card-title">{{ $p->product->name }}</h4>
