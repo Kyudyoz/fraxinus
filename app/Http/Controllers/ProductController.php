@@ -87,10 +87,12 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
+        $wishlist = Wishlist::where('product_id', $product->id);
         if ($product->image) {
             Storage::delete($product->image);
         }
         $product->delete();
+        $wishlist->delete();
         return redirect('/home')->with('berhasil', 'Product has been removed!');
     }
 }

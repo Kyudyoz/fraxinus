@@ -13,6 +13,7 @@
                         <form action="delete/{{ $post->id }}" method="post" class="d-inline" id="deleteForm">
                             @method('delete')
                             @csrf
+                            <input type="hidden" name="confirmed" id="deleteConfirmed" value="0">
                             <button type="button" class="btn btn-danger" onclick="confirmDelete(event)" style="vertical-align: bottom"><i class="fa-solid fa-trash" style="color: #000000;"></i> Hapus</button>
                           </form>
                         @endif 
@@ -29,7 +30,7 @@
                         </p>
                         <hr/>
               @if ($post->url)    
-              <iframe width="320" height="240" src="https://www.youtube.com/embed/{{ $post->url }}">
+              <iframe style="margin-left: 25%;" width="50%" height="300" src="https://www.youtube.com/embed/{{ $post->url }}">
                 </iframe>
                 @endif
                         <article class="my-3 fs-6">
