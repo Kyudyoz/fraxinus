@@ -56,7 +56,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete this post?</p>
+                <p>Are you sure you want to delete this wishlist?</p>
             </div>
             <div class="modal-footer">
                 <input type="hidden" name="confirmed" id="deleteConfirmed" value="0">
