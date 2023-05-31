@@ -1,7 +1,7 @@
 @include('partials.header')
 @include('partials.navbar')
 
-<div class="main">
+<div class="main2">
   <div class="main-containerr">
     @if (session()->has('berhasil'))
 
@@ -16,7 +16,7 @@
 </div>
 @endif
 
-    <section class="items">
+    <div class="items">
       <div class="container1">
         <div class="search">
           <div class="wrapper">
@@ -58,7 +58,7 @@
         <p class="text-center mt-4 fs-4">Postingan Tidak Ditemukan</p>  
         @endif
       </div>
-    </section>
+    </div>
     <div class="d-flex justify-content-center">
         {{ $posts->links() }}
     </div>

@@ -1,7 +1,7 @@
 @include('partials.header')
 @include('partials.navbar')
 
-<div class="main">
+<div class="main2">
   <div class="main-containerr">
     <form action="/signout" method="post" class="d-flex justify-content-center text-center">
         @csrf
