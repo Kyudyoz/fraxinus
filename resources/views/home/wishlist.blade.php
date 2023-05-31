@@ -14,9 +14,9 @@
         @include('partials.footer')
     @else
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             @foreach ($wishlists as $p)
-            <div class="col-md-8 mb-2 mx-2">
+            <div class="col-md-4 mb-2">
                 <form action="/wishlist/{{ $p->id }}" method="post" id="deleteForm">
                     @method('delete')
                     @csrf
@@ -46,6 +46,9 @@
           </div>
             @endforeach
           </div>
+          <div class="d-flex justify-content-center">
+            {{ $wishlists->links() }}
+        </div>
         </div>
     </div>
         <!-- Modal Konfirmasi Delete -->
