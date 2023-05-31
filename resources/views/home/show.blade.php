@@ -1,9 +1,8 @@
 @include('partials.header')
 @include('partials.navbar')
 
-
-<div class="itemz-desc showz">
-    <div class="itemz-desc-containerr">
+<div class="itemz-desc showz main3">
+    <div class="itemz-desc-containerr mt-4">
         <div class="box1">
             <img src="{{ asset('storage/' . $product->image) }}" alt="img" style="height: 100%; width:100%" />
         </div>

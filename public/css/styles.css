@@ -221,7 +221,7 @@ section::before{
     left: 0;
     width: 100%;
     height: 100px;
-    /* background:linear-gradient(to top, #71381b, transparent ) ; */
+    background:linear-gradient(to top, #71381b, transparent ) ;
     z-index: 8;
 }
 
@@ -394,6 +394,17 @@ section #text span{
     /* background: #094b65 ; */
     background:url(/img/papan.jpg);
     background-size: cover;
+}
+
+.main3{
+    min-height: 70vh;
+    justify-content: center;
+    align-items: flex-start;
+    /* margin-top: -5.75rem; */
+    /* background: #094b65 ; */
+    background:url(/img/papan.jpg);
+    background-size: cover;
+    padding-bottom: 40px;
 }
 
 .main-containerr {
@@ -575,7 +586,7 @@ a {
 .itemz-desc {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
 }
 .itemz-desc .itemz-desc-containerr {
     display: flex;

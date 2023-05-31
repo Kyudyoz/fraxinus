@@ -1,63 +1,6 @@
 @include('partials.header')
 @include('partials.navbar')
 
-{{-- <div class="home">
-  <video class="video-slide active" src="/css/indoor.mp4" autoplay muted loop></video>
-  <video class="video-slide" src="/css/Outdoor.mp4" autoplay muted loop></video>
-  <video class="video-slide" src="/css/fertilizers.mp4" autoplay muted loop></video>
-  <video class="video-slide" src="/css/seeds.mp4" autoplay muted loop></video>
-  <div class="content active">
-    <h1>Indoor</h1>
-    <p>Tanaman indoor biasanya membutuhkan perawatan yang relatif mudah, termasuk penyiraman teratur, pemupukan sesekali, dan penempatan di tempat yang sesuai dengan tingkat cahaya yang tepat. Mereka dapat memberikan manfaat yang positif bagi kesehatan dan kesejahteraan, seperti meningkatkan kualitas udara dan mengurangi stres. </p>
-    <a href="#">Explore</a>
-  </div>
-  <div class="content">
-      <h1>Outdoor</h1>
-      <p>Tanaman outdoor tidak hanya memberikan keindahan visual, tetapi juga dapat menciptakan lingkungan yang sejuk, menarik serangga penyerbuk, menyediakan tempat perlindungan untuk satwa liar, serta memberikan udara segar dan sumber makanan yang sehat. Dengan merencanakan taman outdoor dengan bijak dan memilih tanaman yang sesuai, Anda dapat menciptakan ruang hijau yang menyenangkan dan alami di luar ruangan Anda.</p>
-      <a href="#">Explore</a>
-    </div>
-    <div class="content">
-      <h1>Fertilizers</h1>
-      <p>Fertilizers dapat diterapkan dalam berbagai bentuk, termasuk granul, serbuk, cairan, atau tusuk. Mereka biasanya digunakan untuk melengkapi tingkat nutrisi dalam tanah, terutama ketika sumber nutrisi alami tidak mencukupi atau ketika tanaman mengalami kekurangan nutrisi tertentu. Penerapan yang tepat dari fertilizer melibatkan mengikuti petunjuk yang tertera pada label produk, mempertimbangkan kebutuhan khusus tanaman, dan menghindari pemupukan berlebihan yang dapat menyebabkan polusi lingkungan atau kerusakan pada tanaman.</p>
-      <a href="#">Explore</a>
-    </div>
-    <div class="content">
-      <h1>Seeds</h1>
-      <p>Biji tanaman hias adalah awal dari keindahan dan keunikan tanaman hias. Dengan menanam biji yang dipilih dengan cermat, Anda dapat mengembangkan berbagai varietas tanaman hias yang indah di taman atau di dalam rumah Anda. Tumbuhkan biji tanaman hias dengan cinta dan perhatian, dan nikmati kegembiraan melihat mereka tumbuh dan berkembang menjadi tanaman yang menakjubkan.</p>
-      <a href="#">Explore</a>
-    </div>
-  <div class="slide-navigation">
-      <div class="nav-btn active"></div>
-      <div class="nav-btn"></div>
-      <div class="nav-btn"></div>
-      <div class="nav-btn"></div>
-  </div>
-</div>
-<script type="text/JavaScript">  
-  //JS for video slider navigation
-  const btns = document.querySelectorAll(".nav-btn");
-  const slides = document.querySelectorAll(".video-slide");
-  const contents = document.querySelectorAll(".content");
-  var sliderNav = function(manual){
-      btns.forEach((btn)=>{
-          btn.classList.remove("active");
-      });
-      slides.forEach((slide)=>{
-          slide.classList.remove("active");
-      });
-      contents.forEach((content)=>{
-          content.classList.remove("active");
-      });
-      btns[manual].classList.add("active");
-      slides[manual].classList.add("active");
-      contents[manual].classList.add("active");
-  }
-  btns.forEach((btn, i) => {
-      btn.addEventListener("click", () => {
-          sliderNav(i);
-      });
-  });
-</script> --}}
 <section>
   <h2 id="text"><span>It's time for a new</span><br>Flowers</h2>
   <img src="/img/bird1.png" id="bird1">
@@ -161,7 +104,7 @@
           @endforeach
         </div>
         @else
-        <p class="text-center mt-4 fs-4">Produk Tidak Ditemukan</p>  
+        <p class="text-center mt-4 fs-4 text-white">Produk Tidak Ditemukan</p>  
         @endif
       </div>
     </div>

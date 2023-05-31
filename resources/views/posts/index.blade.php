@@ -55,7 +55,7 @@
         @endforeach
         </div>
         @else
-        <p class="text-center mt-4 fs-4">Postingan Tidak Ditemukan</p>  
+        <p class="text-center mt-4 fs-4 text-white">Postingan Tidak Ditemukan</p>  
         @endif
       </div>
     </div>

@@ -1,7 +1,8 @@
 @include('partials.header')
 
-<section class="forms">
-    <div class="forms-containerr">
+
+<div class="forms main2">
+    <div class="forms-containerr mt-4">
       <div class="box1"></div>
       <div class="box2">
         <h1>Sign In</h1>
@@ -39,4 +40,4 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>

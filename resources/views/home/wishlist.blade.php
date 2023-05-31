@@ -7,9 +7,10 @@
   {{ session('berhasil') }}
 </div>
 @endif
-<h1 class="text-center mt-4">Wishlist</h1>
+<div class="main3">
+<h1 class="text-center text-white">Wishlist</h1>
     @if ($wishlists->isEmpty())
-        <h3 class="text-center">Belum ada produk dalam Wishlist Anda.</h3>
+        <h3 class="text-center text-white">Belum ada produk dalam Wishlist Anda.</h3>
         @include('partials.footer')
     @else
     <div class="container">
@@ -46,6 +47,7 @@
             @endforeach
           </div>
         </div>
+    </div>
         <!-- Modal Konfirmasi Delete -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
     aria-hidden="true">
