@@ -6,33 +6,10 @@
   <img src="/img/bird1.png" id="bird1">
   <img src="/img/bird2.png" id="bird2">
   <img src="/img/forest.png" id="forest">
-  <a href="#" id="btn">Explore</a>
+  <a href="#scroll" id="btn" class="page-scroll">Explore</a>
   <img src="/img/rocks.png" id="rocks">
   <img src="/img/water.png" id="water">
 </section>
-<script>
-  let text = document.getElementById('text');
-  let bird1 = document.getElementById('bird1');
-  let bird2 = document.getElementById('bird2');
-  let btn = document.getElementById('btn');
-  let rocks = document.getElementById('rocks');
-  let forest = document.getElementById('forest');
-  let water = document.getElementById('water');
-
-  window.addEventListener('scroll', function(){
-    let value = window.scrollY;
-    text.style.top = 50 + value * -0.2 + '%';
-    bird1.style.top = value * -1.5 + '%';
-    bird1.style.left = value * 2 + '%';
-    bird2.style.top = value * -1.5 + '%';
-    bird2.style.left = value * -5 + '%';
-    btn.style.marginTop = value * 1.5 + 'px';
-    rocks.style.top = value * -0.12 + 'px';
-    forest.style.top = value * 0.25 + 'px';
-  })
-  
-</script>
-
 
 <div class="main">
   <div class="main-containerr">
@@ -48,7 +25,7 @@
   {{ session('gagal') }}
 </div>
 @endif
-    <div class="categories">
+    <div class="categories" id="scroll">
       <a href="/home?category=Outdoors" class="out">
         <i class="fa-solid fa-sun fa-1x"></i>
         <p>Outdoors</p>
@@ -104,7 +81,7 @@
           @endforeach
         </div>
         @else
-        <p class="text-center mt-4 fs-4 text-white">Produk Tidak Ditemukan</p>  
+        <p class="text-center mt-4 fs-4 text-white">Product Not Found</p>  
         @endif
       </div>
     </div>
@@ -114,4 +91,40 @@
   </div>
 </div>
 
+
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script>
+
+$('.page-scroll').on('click', function(e){
+  e.preventDefault();
+  let href = $(this).attr('href');
+  let elementHref = $(href);
+  $('html, body').animate({
+    scrollTop: elementHref.offset().top - 20
+  }, 1000);
+});
+  
+  let text = document.getElementById('text');
+  let bird1 = document.getElementById('bird1');
+  let bird2 = document.getElementById('bird2');
+  let btn = document.getElementById('btn');
+  let rocks = document.getElementById('rocks');
+  let forest = document.getElementById('forest');
+  let water = document.getElementById('water');
+
+  window.addEventListener('scroll', function(){
+    let value = window.scrollY;
+    text.style.top = 50 + value * -0.2 + '%';
+    bird1.style.top = value * -1.5 + '%';
+    bird1.style.left = value * 2 + '%';
+    bird2.style.top = value * -1.5 + '%';
+    bird2.style.left = value * -5 + '%';
+    btn.style.marginTop = value * 1.5 + 'px';
+    rocks.style.top = value * -0.12 + 'px';
+    forest.style.top = value * 0.25 + 'px';
+  });
+  
+  
+  
+</script>
 @include('partials.footer1')

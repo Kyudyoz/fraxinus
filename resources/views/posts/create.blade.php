@@ -2,8 +2,8 @@
 
 @include('partials.navbar')
 
-<div class="row justify-content-center">
-  <div class="col-lg-5">
+<div class="row justify-content-center main3">
+  <div class="col-lg-5 mt-3">
     <form action="/store" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-floating text-dark text-muted"> 
@@ -15,7 +15,7 @@
               </div>
         @enderror
     </div>
-    <div class="mb-3 mt-2 text-dark text-muted">
+    <div class="mb-3 mt-2 text-white">
       <label for="image" class="form-label">Post Image(nullable)</label>
       <img class="img-preview img-fluid mb-3 col-sm-5">
       <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
@@ -34,7 +34,7 @@
             </div>
       @enderror
   </div>
-    <div class="mb-3 mt-2 text-dark text-muted">
+    <div class="mb-3 mt-2 text-white">
       <label for="body" class="form-label">Body</label>
         <input id="body" type="hidden" name="body" value="{{ old('body') }}">
         <trix-editor input="body"></trix-editor>

@@ -8,11 +8,11 @@
 </div>
 @endif
 <div class="main3">
-<h1 class="text-center text-white">Wishlist</h1>
     @if ($wishlists->isEmpty())
-        <h3 class="text-center text-white">Belum ada produk dalam Wishlist Anda.</h3>
+        <h3 class="text-center text-white" style="padding-top: 14%">You don't have a wishlist yet</h3>
         @include('partials.footer')
     @else
+    <h1 class="text-center text-white pt-2">Wishlist</h1>
     <div class="container">
         <div class="row">
             @foreach ($wishlists as $p)

@@ -2,8 +2,8 @@
 
 @include('partials.navbar')
 
-<div class="row justify-content-center">
-  <div class="col-lg-8">
+<div class="row justify-content-center main3">
+  <div class="col-lg-8 mt-3">
     <form action="/posts/show/{{ $post->id }}/edit/update" method="post" enctype="multipart/form-data">
       @method('put')
         @csrf
@@ -11,7 +11,7 @@
         <input type="text" name="title" id="title" class="form-control" value="{{ $post->title }}" />
         <label for="title">Title</label>
     </div>
-    <div class="mt-2 mb-2 text-dark text-muted">
+    <div class="mt-2 mb-2 text-white">
       <label for="image">Post Image</label>
       <input type="hidden" name="oldImage" value="{{ $post->image }}">
       @if ($post->image)    
@@ -45,7 +45,7 @@
       @enderror
       @endif 
   </div>
-    <div class="mb-3 mt-2 text-dark text-muted">
+    <div class="mb-3 mt-2 text-white">
       <label for="body" class="form-label">Body</label>
         <input id="body" type="hidden" name="body" value="{{ $post->body }}">
         <trix-editor input="body"></trix-editor>
@@ -54,7 +54,8 @@
             {{ $message }}
           </p>
       @enderror
-      <button type="submit" class="btn btn-primary mt-3 mb-3">Save Changes</button>
+    </div>
+      <button type="submit" class="btn btn-primary mt-3 mb-3" >Save Changes</button>
     </form>
   </div>
 </div>

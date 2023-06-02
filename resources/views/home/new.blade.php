@@ -2,8 +2,8 @@
 
 @include('partials.navbar')
 
-<div class="row justify-content-center">
-  <div class="col-lg-5">
+<div class="row justify-content-center main3">
+  <div class="col-lg-5 mt-3">
     <form action="/newproduct" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-floating text-dark text-muted"> 
@@ -33,7 +33,7 @@
         </select>
         <label for="category">Product Category</label>
     </div>
-    <div class="mb-3 text-dark text-muted">
+    <div class="mb-3 text-white">
       <label for="image" class="form-label">Product Image</label>
       <img class="img-preview img-fluid mb-3 col-sm-5">
       <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">

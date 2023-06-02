@@ -2,8 +2,8 @@
 
 @include('partials.navbar')
 
-<div class="row justify-content-center">
-  <div class="col-lg-5">
+<div class="row justify-content-center main3">
+  <div class="col-lg-5 mt-3">
     <form action="/show/{{ $product->id }}" method="post" enctype="multipart/form-data">
       @method('put')
         @csrf
@@ -24,7 +24,7 @@
       </select>
       <label for="category">Product Category</label>
   </div>
-    <div class="text-dark text-muted">
+    <div class="text-white">
       <label for="image">Product Image</label>
       <input type="hidden" name="oldImage" value="{{ $product->image }}">
       <img src="{{ asset('storage/'. $product->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">

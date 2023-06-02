@@ -2,7 +2,7 @@
 @include('partials.navbar')
 
 <div class="main">
-                <div class="card" style="width:80%">
+                <div class="card my-3" style="width:80%">
                    @if ($post->image)    
                 <img src="{{ asset('storage/'. $post->image) }}" class="card-img-top" alt="{{ $post->title }}" style="max-width:1300px;min-height:350px;max-height:350px;">
                 @endif
@@ -14,7 +14,7 @@
                             @method('delete')
                             @csrf
                             <input type="hidden" name="confirmed" id="deleteConfirmed" value="0">
-                            <button type="button" class="btn btn-danger" onclick="confirmDelete(event)" style="vertical-align: bottom"><i class="fa-solid fa-trash" style="color: #000000;"></i> Hapus</button>
+                            <button type="button" class="btn btn-danger" onclick="confirmDelete(event)" style="vertical-align: bottom"><i class="fa-solid fa-trash" style="color: #000000;"></i> Delete</button>
                           </form>
                         @endif 
                         @endauth 
