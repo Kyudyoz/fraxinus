@@ -44,7 +44,7 @@
       </a>
     </div>
     
-    <div class="categories">
+    <div class="categories" id="items">
       <a href="/posts" class="comm">
         <i class="fa-solid fa-users fa-2x"></i>
         <p>Community</p>
@@ -55,7 +55,7 @@
       </a>
     </div>
 
-    <div class="items">
+    <div class="items" >
       <div class="container1">
         @if ($products->count())
         <div class="row">
@@ -123,7 +123,25 @@ $('.page-scroll').on('click', function(e){
     rocks.style.top = value * -0.12 + 'px';
     forest.style.top = value * 0.25 + 'px';
   });
-  
+   
+// Memanggil fungsi untuk mengatur scroll hanya ketika URL memenuhi kriteria
+window.addEventListener("load", function() {
+  // Mengecek URL halaman
+  if (window.location.href != "http://localhost:8000") {
+    // Mendapatkan elemen kontainer dengan ID "items"
+    var container = document.getElementById("items");
+
+    // Mendapatkan posisi top kontainer sebelum pindah halaman
+    var previousTop = container.getBoundingClientRect().top + window.pageYOffset;
+
+    // Mengatur posisi scroll ke posisi top sebelumnya
+    window.scrollTo({
+      top: previousTop + 50,
+      behavior: "instant" // Menggunakan "instant" untuk menghilangkan animasi scroll
+    });
+  }
+});
+
   
   
 </script>
