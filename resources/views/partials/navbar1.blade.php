@@ -12,7 +12,7 @@
               id="search"
               placeholder="Search product..."
               autocomplete="off"
-              wire:model="search"/>
+              />
             <button type="submit">
               <i class="fa-solid fa-magnifying-glass fa-3xs"></i>
             </button>

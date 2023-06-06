@@ -17,4 +17,10 @@ class ProductTable extends Component
             "products" =>Product::latest()->filter(request(['search','category']))->paginate(3)->withQueryString(),
         ]);
     }
+
+    public function search()
+    {
+        $this->resetPage(); // Mereset halaman ke halaman pertama setelah setiap pencarian
+    }
+
 }

@@ -5,7 +5,7 @@
       </div>
       <div class="search">
         <div class="wrapper">
-          <form action="/home">
+          <form action="/home" wire:submit.prevent="search">
             <input
               type="text"
               name="search"

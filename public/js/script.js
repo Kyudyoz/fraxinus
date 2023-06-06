@@ -42,9 +42,12 @@ window.addEventListener("load", function () {
             container.getBoundingClientRect().top + window.pageYOffset;
 
         // Mengatur posisi scroll ke posisi top sebelumnya
-        window.scrollTo({
-            top: previousTop + 50,
-            behavior: "instant", // Menggunakan "instant" untuk menghilangkan animasi scroll
-        });
+        $("html, body").animate(
+            {
+                scrollTop: previousTop + 50, // Mengatur posisi scroll dengan efek animasi
+            },
+            200,
+            "easeInBounce" // Durasi animasi dalam milidetik (di sini 1000ms atau 1 detik)
+        );
     }
 });
