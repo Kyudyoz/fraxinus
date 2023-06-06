@@ -9,6 +9,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\WishlistController;
 
+
+
 Route::get('/signup', [RegisterController::class, 'index'])->middleware('guest');
 
 Route::post('/signup', [RegisterController::class, 'store']);

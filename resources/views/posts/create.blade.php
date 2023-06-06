@@ -36,8 +36,8 @@
   </div>
     <div class="mb-3 mt-2 text-white">
       <label for="body" class="form-label">Body</label>
-        <input id="body" type="hidden" name="body" value="{{ old('body') }}">
-        <trix-editor input="body"></trix-editor>
+        <input id="body" type="hidden" name="body" value="{{ old('body') }}" class="text-dark">
+        <trix-editor input="body" class="text-dark"></trix-editor>
         @error('body')
           <p class="text-danger">
             {{ $message }}

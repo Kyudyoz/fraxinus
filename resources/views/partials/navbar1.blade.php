@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top">
+<nav class="navbar">
       <div class="logo">
         <img src="/img/fraxinus_logo.png" alt="logo" />
         <a href="/">Fraxinus</a>
@@ -12,7 +12,7 @@
               id="search"
               placeholder="Search product..."
               autocomplete="off"
-            wire:model="search"/>
+              wire:model="search"/>
             <button type="submit">
               <i class="fa-solid fa-magnifying-glass fa-3xs"></i>
             </button>

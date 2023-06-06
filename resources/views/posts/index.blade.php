@@ -1,5 +1,5 @@
 @include('partials.header')
-@include('partials.navbar')
+@include('partials.navbar1')
 
 <div class="main2">
   <div class="main-containerr">
