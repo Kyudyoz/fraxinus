@@ -25,7 +25,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return redirect('/home');  
+            return redirect('/');  
         }
 
         return back()->with('loginError', 'Login Gagal!');
@@ -38,6 +38,6 @@ class LoginController extends Controller
  
     $request->session()->regenerateToken();
  
-    return redirect('/home')->with('berhasil', 'Logout Success!');
+    return redirect('/')->with('berhasil', 'Logout Success!');
     }
 }

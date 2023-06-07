@@ -37,7 +37,7 @@
                             {!! $post->body !!}
                         </article>
                     </div>
-                    <a href="/posts" class=" mt-2 mb-2 mx-3 btn btn-primary">Back to posts</a>
+                    <a href="/posts" class=" mt-2 mb-2 mx-3 btn btn-post">Back to posts</a>
                 </div>
 </div>
 

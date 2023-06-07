@@ -19,7 +19,7 @@
             </div>
           </div>
         </nav>
-          <a href="/create" class="btn btn-primary mt-3 mb-3"><i class="fa-solid fa-plus" style="color: #ffffff;"></i> New Post</a>
+          <a href="/create" class="btn btn-post mt-3 mb-3"><i class="fa-solid fa-plus" style="color: #ffffff;"></i> New Post</a>
           @if ($posts->count())
           <div class="row mt-2">
               @foreach ($posts as $post)
