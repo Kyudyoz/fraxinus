@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rancho&display=swap");
 
 * {
     margin: 0;
@@ -214,18 +214,18 @@ section {
     align-items: center;
 }
 
-section::before{
-    content: '';
+section::before {
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 100px;
-    background:linear-gradient(to top, #71381b, transparent ) ;
+    background: linear-gradient(to top, #71381b, transparent);
     z-index: 8;
 }
 
-section img{
+section img {
     position: absolute;
     top: 0;
     left: 0;
@@ -235,24 +235,24 @@ section img{
     pointer-events: none;
 }
 
-section #text{
+section #text {
     position: absolute;
     color: #cc501c;
     font-size: 10vw;
     text-align: center;
     line-height: 0.55em;
-    font-family: 'Rancho', cursive;
+    font-family: "Rancho", cursive;
     transform: translateY(-50%);
 }
 
-section #text span{
-    font-size: 0.20em;
+section #text span {
+    font-size: 0.2em;
     letter-spacing: 2px;
     font-weight: 400;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
-#btn{
+#btn {
     text-decoration: none;
     display: inline-block;
     padding: 8px 30px;
@@ -381,28 +381,28 @@ section #text span{
     align-items: flex-start;
     /* margin-top: -5.75rem; */
     /* background: #094b65 ; */
-    background:url(/img/papan.jpg);
+    background: url(/img/papan.jpg);
     background-size: cover;
 }
 
-.main2{
+.main2 {
     min-height: 70vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     /* margin-top: -5.75rem; */
     /* background: #094b65 ; */
-    background:url(/img/papan.jpg);
+    background: url(/img/papan.jpg);
     background-size: cover;
 }
 
-.main3{
+.main3 {
     min-height: 70vh;
     justify-content: center;
     align-items: flex-start;
     /* margin-top: -5.75rem; */
     /* background: #094b65 ; */
-    background:url(/img/papan.jpg);
+    background: url(/img/papan.jpg);
     background-size: cover;
     padding-bottom: 40px;
 }
@@ -737,8 +737,6 @@ a {
     margin-bottom: 0;
 } */
 
-
-
 /* MEDIA QUERIES */
 @media (max-width: 900px) {
     .forms .forms-containerr {
@@ -807,7 +805,7 @@ a {
         margin: auto;
         margin-left: 35px;
         transition: 0.3s ease;
-    } 
+    }
     .main .categories {
         flex-wrap: nowrap;
         flex-direction: row;
@@ -843,11 +841,11 @@ a {
     }
 }
 
-@media (max-width: 900px){
-    .home{
+@media (max-width: 900px) {
+    .home {
         padding: 100px 30px;
     }
-    .home .content{
+    .home .content {
         margin-top: -105px;
     }
 }

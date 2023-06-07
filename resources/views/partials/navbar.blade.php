@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top">
+<nav class="navbar">
       <div class="logo">
         <img src="/img/fraxinus_logo.png" alt="logo" />
         <a href="/">Fraxinus</a>
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="links">
-        <a href="/home"><i class="fa-solid fa-house fa-2xl"></i></a>
+        <a href="/"><i class="fa-solid fa-house fa-2xl"></i></a>
         <a href="/posts" class="comm"><i class="fa-solid fa-users fa-2xl"></i></a>
         <a href="/wishlist"><i class="fa-solid fa-heart fa-2xl"></i>
           @if ($wishlistCount > 0)

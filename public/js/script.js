@@ -30,24 +30,20 @@ window.addEventListener("scroll", function () {
     forest.style.top = value * 0.25 + "px";
 });
 
-// Memanggil fungsi untuk mengatur scroll hanya ketika URL memenuhi kriteria
 window.addEventListener("load", function () {
     // Mengecek URL halaman
     if (window.location.href != "http://localhost:8000/") {
-        // Mendapatkan elemen kontainer dengan ID "items"
         var container = document.getElementById("items");
 
-        // Mendapatkan posisi top kontainer sebelum pindah halaman
         var previousTop =
             container.getBoundingClientRect().top + window.pageYOffset;
 
-        // Mengatur posisi scroll ke posisi top sebelumnya
         $("html, body").animate(
             {
-                scrollTop: previousTop + 50, // Mengatur posisi scroll dengan efek animasi
+                scrollTop: previousTop + 50,
             },
             200,
-            "easeInBounce" // Durasi animasi dalam milidetik (di sini 1000ms atau 1 detik)
+            "easeInBounce"
         );
     }
 });
