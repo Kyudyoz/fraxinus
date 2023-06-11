@@ -1,25 +1,9 @@
-<nav class="navbar">
+<nav class="navbar sticky-top">
       <div class="logo">
         <img src="/img/fraxinus_logo.png" alt="logo" />
         <a href="/">Fraxinus</a>
       </div>
-      <div class="search">
-        <div class="wrapper">
-          <form action="/home">
-            <input
-              type="text"
-              name="search"
-              id="search"
-              placeholder="Search product..."
-              autocomplete="off"
-            wire:model="search"/>
-            <button type="submit">
-              <i class="fa-solid fa-magnifying-glass fa-3xs"></i>
-            </button>
-          </form>
-        </div>
-      </div>
-      <div class="links">
+      <div class="links ms-auto">
         <a href="/home"><i class="fa-solid fa-house fa-2xl"></i></a>
         <a href="/posts" class="comm"><i class="fa-solid fa-users fa-2xl"></i></a>
         <a href="/wishlist"><i class="fa-solid fa-heart fa-2xl"></i>

@@ -214,7 +214,7 @@ body {
 
 /* HOME PAGE */
 
-section {
+.landing {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -223,7 +223,7 @@ section {
     align-items: center;
 }
 
-section::before {
+.landing::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -234,7 +234,7 @@ section::before {
     z-index: 8;
 }
 
-section img {
+.landing img {
     position: absolute;
     top: 0;
     left: 0;
@@ -244,7 +244,7 @@ section img {
     pointer-events: none;
 }
 
-section #text {
+.landing #text {
     position: absolute;
     color: #cc501c;
     font-size: 10vw;
@@ -254,7 +254,7 @@ section #text {
     transform: translateY(-50%);
 }
 
-section #text span {
+.landing #text span {
     font-size: 0.2em;
     letter-spacing: 2px;
     font-weight: 400;

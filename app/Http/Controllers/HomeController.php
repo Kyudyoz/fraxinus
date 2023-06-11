@@ -30,7 +30,7 @@ class HomeController extends Controller
             $wishlistCount = "";
         }
         $user = $request->user();
-        $wishlists = $user->wishlists()->latest()->paginate(6)->withQueryString();
+        $wishlists = $user->wishlists()->latest()->paginate(3)->withQueryString();
         return view('home.wishlist', compact('wishlists','wishlistCount'));
     }
 

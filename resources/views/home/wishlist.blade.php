@@ -1,13 +1,17 @@
 @include('partials.header')
-@include('partials.navbar')
+@include('partials.navbar-wishlist')
 
-@if (session()->has('berhasil'))
 
-<div class="alert alert-success col-lg-12" role="alert">
-  {{ session('berhasil') }}
-</div>
-@endif
+
 <div class="main3">
+    
+    <div class="row d-flex justify-content-center">
+        @if (session()->has('berhasil'))
+        <div class="alert alert-success col-lg-10 mt-3" role="alert">
+            {{ session('berhasil') }}
+        </div>
+        @endif
+    </div>
     @if ($wishlists->isEmpty())
         <h3 class="text-center text-white" style="padding-top: 14%">You don't have a wishlist yet</h3>
         @include('partials.footer')
@@ -17,12 +21,12 @@
         <div class="row">
             @foreach ($wishlists as $p)
             <div class="col-md-4 mb-2">
-                <form action="/wishlist/{{ $p->id }}" method="post" id="deleteForm">
+                <form action="/wishlist/{{ $p->id }}" method="post" id="deleteForm{{ $p->id }}">
                     @method('delete')
                     @csrf
                     <div class="position-absolute bg-transparent px-1 py-1" style="z-index:99;">
-                      <input type="hidden" name="confirmed" id="deleteConfirmed" value="0">
-                        <button type="button" style="background-color: red; border:none; padding:10px; text-align:start;border-radius:10px" onclick="confirmDelete(event)">
+                        <input type="hidden" name="confirmed" id="deleteConfirmed{{ $p->id }}" value="0">
+                        <button type="button" style="background-color: red; border:none; padding:10px; text-align:start;border-radius:10px" onclick="openConfirmationModal({{ $p->id }})">
                             <i class="fa-solid fa-trash fa-2xl" style="color: white"></i>
                         </button>
                     </div>
@@ -51,53 +55,40 @@
         </div>
         </div>
     </div>
-        <!-- Modal Konfirmasi Delete -->
-<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
-    aria-hidden="true">
+
+
+        <!-- Modal Penghapusan -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmation</h5>
+                <h5 class="modal-title" id="confirmationModalLabel">Konfirmasi Penghapusan Wishlist</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete this wishlist?</p>
+                <p>Apakah Anda yakin ingin menghapus wishlist ini?</p>
             </div>
             <div class="modal-footer">
-                <input type="hidden" name="confirmed" id="deleteConfirmed" value="0">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                    onclick="setDeleteConfirmed(0)">Cancel</button>
-                <button type="button" class="btn btn-danger" onclick="setDeleteConfirmed(1)"
-                    data-bs-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-danger" onclick="deleteWishlist()">Hapus</button>
             </div>
         </div>
     </div>
 </div>
 
-
 <script>
-    // Fungsi untuk mengatur nilai konfirmasi penghapusan
-    function setDeleteConfirmed(value) {
-        document.getElementById('deleteConfirmed').value = value;
+    let deleteId;
+
+    function openConfirmationModal(id) {
+        deleteId = id;
+        $('#confirmationModal').modal('show');
     }
 
-    // Fungsi untuk menampilkan modal konfirmasi penghapusan
-    function confirmDelete(event) {
-        event.preventDefault();
-
-        // Tampilkan modal konfirmasi
-        $('#confirmDeleteModal').modal('show');
-
-        // Tambahkan event listener untuk menangani konfirmasi penghapusan
-        $('#confirmDeleteModal').on('hidden.bs.modal', function (e) {
-            // Dapatkan nilai konfirmasi
-            const confirmed = $('#deleteConfirmed').val();
-
-            // Lanjutkan dengan penghapusan jika dikonfirmasi
-            if (confirmed === '1') {
-                document.getElementById('deleteForm').submit();
-            }
-        });
+    function deleteWishlist() {
+        // Tandai penghapusan dikonfirmasi
+        document.getElementById('deleteConfirmed' + deleteId).value = '1';
+        // Submit form penghapusan
+        document.getElementById('deleteForm' + deleteId).submit();
     }
 </script>
           @include('partials.footer1')

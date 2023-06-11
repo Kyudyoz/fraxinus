@@ -1,7 +1,7 @@
 <div>
   @include('partials.navbar1')
 
-  <section>
+  <section class="landing">
     <h2 id="text"><span>It's time for a new</span><br>Flowers</h2>
     <img src="/img/bird1.png" id="bird1">
     <img src="/img/bird2.png" id="bird2">
@@ -13,18 +13,7 @@
   
   <div class="main">
     <div class="main-containerr">
-      @if (session()->has('berhasil'))
-  
-      <div class="alert alert-success col-lg-12" role="alert">
-        {{ session('berhasil') }}
-      </div>
-      @endif
-      @if (session()->has('gagal'))
-  
-  <div class="alert alert-danger col-lg-12" role="alert">
-    {{ session('gagal') }}
-  </div>
-  @endif
+      
       <div class="categories" id="scroll">
         <a href="/home?category=Outdoors" class="out">
           <i class="fa-solid fa-sun fa-1x"></i>
@@ -57,7 +46,16 @@
   
       <div class="items" >
         <div class="container1">
-          
+      @if (session()->has('berhasil'))
+        <div class="alert alert-success col-lg-12 mb-3" role="alert">
+          {{ session('berhasil') }}
+        </div>
+      @endif
+      @if (session()->has('gagal'))
+        <div class="alert alert-danger col-lg-12 mb-3" role="alert">
+          {{ session('gagal') }}
+        </div>
+      @endif
           @if ($products->count())
           <div class="row">
             @foreach ($products as $p)

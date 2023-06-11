@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="links">
-        <a href="/"><i class="fa-solid fa-house fa-2xl"></i></a>
+        <a href="/home"><i class="fa-solid fa-house fa-2xl"></i></a>
         <a href="/posts" class="comm"><i class="fa-solid fa-users fa-2xl"></i></a>
         <a href="/wishlist"><i class="fa-solid fa-heart fa-2xl"></i>
           @if ($wishlistCount > 0)

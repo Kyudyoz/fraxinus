@@ -1,7 +1,7 @@
 @include('partials.header')
 @include('partials.navbar-post')
 
-<div class="main">
+<div class="main" style="min-height: 70vh">
                 <div class="card my-3" style="width:80%">
                    @if ($post->image)    
                 <img src="{{ asset('storage/'. $post->image) }}" class="card-img-top" alt="{{ $post->title }}" style="max-width:1300px;min-height:350px;max-height:350px;">

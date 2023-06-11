@@ -27,7 +27,7 @@ class WishlistController extends Controller
             'user_id' => $user->id,
         ]);
 
-        return redirect('/')->with('berhasil', 'Product has been added to your wishlist');
+        return redirect('/home')->with('berhasil', 'Product has been added to your wishlist');
     }
     public function destroy($id)
     {

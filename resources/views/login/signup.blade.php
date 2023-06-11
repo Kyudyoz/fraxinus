@@ -1,8 +1,8 @@
 @include('partials.header')
-<section class="forms">
+<div class="forms main2" style="height: 110vh">
     <div class="forms-containerr">
-      <div class="box1"></div>
-      <div class="box2">
+      <div class="box1 my-4"></div>
+      <div class="box2 my-4" style="height:100vh">
         <h1>Sign Up</h1>
         <form action="/signup" method="post">
         @csrf
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <script>
     document.getElementById("phone").addEventListener("input", function() {

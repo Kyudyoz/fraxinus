@@ -4,7 +4,7 @@ $(".page-scroll").on("click", function (e) {
     let elementHref = $(href);
     $("html, body").animate(
         {
-            scrollTop: elementHref.offset().top - 20,
+            scrollTop: elementHref.offset().top - 120,
         },
         1000
     );
