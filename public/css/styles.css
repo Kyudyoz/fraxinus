@@ -124,7 +124,6 @@ body {
     align-items: center;
 }
 .navbar {
-    position: relative;
     display: flex;
     justify-content: center;
     background: #fff;

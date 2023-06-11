@@ -1,5 +1,5 @@
 @include('partials.header')
-@include('partials.navbar')
+@include('partials.navbar-post')
 
 <div class="main">
                 <div class="card my-3" style="width:80%">

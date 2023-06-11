@@ -32,7 +32,14 @@ window.addEventListener("scroll", function () {
 
 window.addEventListener("load", function () {
     // Mengecek URL halaman
-    if (window.location.href != "http://localhost:8000/") {
+    if (
+        window.location.href != "http://localhost:8000/" &&
+        window.location.href != "http://127.0.0.1:8000/" &&
+        window.location.href != "http://localhost:8000/posts" &&
+        window.location.href != "http://127.0.0.1:8000/posts" &&
+        window.location.href != "http://localhost:8000/wishlist" &&
+        window.location.href != "http://127.0.0.1:8000/wishlist"
+    ) {
         var container = document.getElementById("items");
 
         var previousTop =

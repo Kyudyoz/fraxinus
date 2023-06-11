@@ -53,7 +53,7 @@ class ProductController extends Controller
         $validatedData['user_id'] = auth()->user()->id;
 
         Product::where('id', $id)->update($validatedData);
-        return redirect('/home')->with('berhasil', 'Product has been updated!');
+        return redirect('/')->with('berhasil', 'Product has been updated!');
     }
 
     public function create()
@@ -81,7 +81,7 @@ class ProductController extends Controller
         $validatedData['user_id'] = auth()->user()->id;
         
         Product::create($validatedData);
-        return redirect('/home')->with('berhasil', 'New product has been added!');
+        return redirect('/')->with('berhasil', 'New product has been added!');
     }
 
     public function destroy($id)
@@ -93,6 +93,6 @@ class ProductController extends Controller
         }
         $product->delete();
         $wishlist->delete();
-        return redirect('/home')->with('berhasil', 'Product has been removed!');
+        return redirect('/')->with('berhasil', 'Product has been removed!');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
+use App\Models\Wishlist;
 use Livewire\WithPagination;
 
 class PostTable extends Component
@@ -13,6 +14,11 @@ class PostTable extends Component
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
+        if (auth()->check()) {
+            $wishlistCount = Wishlist::where('user_id', auth()->user()->id)->count();
+        } else {
+            $wishlistCount = "";
+        }
         return view('livewire.post-table',[
             "posts" =>Post::latest()
             ->when($this->search, function ($query) {
@@ -20,7 +26,8 @@ class PostTable extends Component
             })
             ->filter(request(['searchPost']))
             ->paginate(3)
-            ->withQueryString()
+            ->withQueryString(),
+            "wishlistCount"=>$wishlistCount
         ]);
     }
     

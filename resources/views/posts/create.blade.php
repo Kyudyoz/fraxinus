@@ -1,6 +1,6 @@
 @include('partials.header')
 
-@include('partials.navbar')
+@include('partials.navbar-post')
 
 <div class="row justify-content-center main3">
   <div class="col-lg-5 mt-3">
