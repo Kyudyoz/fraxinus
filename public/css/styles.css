@@ -227,13 +227,14 @@ body {
 
 .main2 .main-containerr .pict .upload img {
     border-radius: 50%;
-    border: 8px solid #dcdcdc;
+    border: 8px solid #999898;
+    background-color: white;
 }
 
 .main2 .main-containerr .pict .upload .round {
     position: absolute;
     display: inline;
-    background: #00b4ff;
+    background: #09e231;
     bottom: 0;
     right: 0;
     width: 33px;
@@ -243,6 +244,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
 }
+
 .main2 .main-containerr .pict .upload .round input[type="file"] {
     position: absolute;
     transform: scale(2);

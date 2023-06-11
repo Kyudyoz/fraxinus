@@ -32,7 +32,7 @@
               <input type="hidden" name="name" value="{{ $user->name }}">
               <div class="round">             
                 <input type="file" name="image" id="image">
-                <i class="fa-solid fa-camera fa-xl"></i>
+                <i class="fa-solid fa-camera fa-xl" style="color: #ffffff;"></i>
               </div>
               @error('image')
                 <div class="invalid-feedback">
