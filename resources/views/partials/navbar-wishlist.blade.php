@@ -14,7 +14,7 @@
           @endif
         </a>
         @if (auth()->check())
-        <a href="/user"><i class="fa-solid fa-user fa-2xl"></i></a>
+        <a href="/userPosts"><i class="fa-solid fa-user fa-2xl"></i></a>
         @else
         <a href="/signin"><i class="fa-solid fa-right-to-bracket fa-2xl"></i></a>
         @endif

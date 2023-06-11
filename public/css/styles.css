@@ -212,6 +212,52 @@ body {
     background-color: var(--color-lt-green);
 }
 
+/* USER */
+
+.userBg {
+    background-image: url("/img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.main2 .main-containerr .pict .upload {
+    width: 125px;
+    position: relative;
+    margin: auto;
+}
+
+.main2 .main-containerr .pict .upload img {
+    border-radius: 50%;
+    border: 8px solid #dcdcdc;
+}
+
+.main2 .main-containerr .pict .upload .round {
+    position: absolute;
+    display: inline;
+    background: #00b4ff;
+    bottom: 0;
+    right: 0;
+    width: 33px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.main2 .main-containerr .pict .upload .round input[type="file"] {
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+}
+
+.main2
+    .main-containerr
+    .pict
+    .upload
+    .round
+    input[type="file"]::-webkit-file-upload-button {
+    cursor: pointer;
+}
+
 /* HOME PAGE */
 
 .landing {

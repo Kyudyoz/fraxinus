@@ -23,11 +23,11 @@ class DatabaseSeeder extends Seeder
 
         User::create ([
             
-              'email'=> "raihanghani58@gmail.com",
-              'password'=> bcrypt("raihan123"),
+              'email'=> "raihan@gmail.com",
+              'password'=> bcrypt("12345"),
               'name'=> "Raihan Ghani",
               'phone'=> "6282320426161",
-              'is_admin'=> true,
+              'is_admin'=> false,
           ]);
         User::create ([
             
@@ -43,12 +43,12 @@ class DatabaseSeeder extends Seeder
               'password'=> bcrypt("12345"),
               'name'=> "Akhdan Al Wafi",
               'phone'=> "6282320424343",
-              'is_admin'=> true,
+              'is_admin'=> false,
           ]);
 
           Product::create([
               'name'=> "Bunga Kembang Sepatu",
-              'user_id'=>1,
+              'user_id'=>2,
               'price'=> '25000',
               'category'=> "Outdoors",
               'description'=>
@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
           ]);
           Product::create([
               'name'=> "Lily",
-              'user_id'=>3,
+              'user_id'=>2,
               'price'=> '35000',
               'category'=> "Indoors",
               'description'=>

@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
@@ -42,8 +43,6 @@ Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy']);
 
 Route::post('/wishlist/{id}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add')->middleware('auth');
 
-Route::get('/user', [HomeController::class, 'user'])->middleware('auth');
-
 //posts
 
 Route::get('/posts', [PostController::class, 'index']);
@@ -59,3 +58,9 @@ Route::get('/posts/show/{id}/edit', [PostController::class, 'edit']);
 Route::put('/posts/show/{id}/edit/update', [PostController::class, 'update']);
 
 Route::delete('/posts/show/delete/{id}', [PostController::class, 'destroy']);
+
+//User
+
+Route::get('/userPosts', [HomeController::class, 'userPosts'])->middleware('auth');
+Route::get('/userProducts', [HomeController::class, 'userProducts'])->middleware('auth');
+Route::put('/userProfile/update', [UserController::class, 'update'])->middleware('auth');
