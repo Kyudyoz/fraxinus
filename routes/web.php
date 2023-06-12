@@ -2,9 +2,11 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BuyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
@@ -59,8 +61,31 @@ Route::put('/posts/show/{id}/edit/update', [PostController::class, 'update']);
 
 Route::delete('/posts/show/delete/{id}', [PostController::class, 'destroy']);
 
-//User
+// User
 
 Route::get('/userPosts', [HomeController::class, 'userPosts'])->middleware('auth');
+
 Route::get('/userProducts', [HomeController::class, 'userProducts'])->middleware('auth');
+
 Route::put('/userProfile/update', [UserController::class, 'update'])->middleware('auth');
+
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->middleware('auth');
+
+Route::put('/user/{id}/update', [UserController::class, 'updates'])->middleware('auth');
+
+Route::get('/userPurchase', [HomeController::class, 'purchase'])->middleware('auth');
+
+Route::get('/userSale', [HomeController::class, 'sale'])->middleware('auth');
+
+Route::put('/purchase/done/{id}', [BuyController::class, 'done'])->middleware('auth');
+
+
+// Buy Form
+Route::get('/buy/{id}', [BuyController::class, 'create'])->middleware('auth');
+Route::post('/buy/{id}/store', [BuyController::class, 'store'])->middleware('auth');
+
+// admin
+
+Route::get('/delivReq', [AdminController::class,'index'])->middleware('auth');
+
+Route::get('/tranHis', [AdminController::class,'history'])->middleware('auth');

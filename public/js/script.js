@@ -54,3 +54,16 @@ window.addEventListener("load", function () {
         );
     }
 });
+
+document.getElementById("phone").addEventListener("input", function () {
+    var input = this.value;
+    input = input.replace(/\+|-/g, ""); // Menghapus tanda "+" atau "-"
+    input = input.replace(/[^\d]/g, ""); // Menghapus karakter selain digit
+
+    // Memastikan angka pertama tidak diisi dengan 0 dan diganti dengan 62
+    if (input.startsWith("0")) {
+        input = "62" + input.substr(1);
+    }
+
+    this.value = input;
+});

@@ -16,7 +16,11 @@
         <label for="price">Product Price</label>
     </div>
     <div class="form-floating text-dark text-muted">
-      <select name="category" id="category" class="form-control">
+        <input type="text" name="qty" id="qty" class="form-control" value="{{ $product->qty }}" />
+        <label for="qty">Stock</label>
+    </div>
+    <div class="form-floating text-dark text-muted">
+      <select name="category" id="category" class="form-select">
           <option value="Indoors" {{ old('category', $product->category) === 'Indoors' ? 'selected' : '' }}>Indoors</option>
           <option value="Outdoors" {{ old('category', $product->category) === 'Outdoors' ? 'selected' : '' }}>Outdoors</option>
           <option value="Seeds" {{ old('category', $product->category) === 'Seeds' ? 'selected' : '' }}>Seeds</option>

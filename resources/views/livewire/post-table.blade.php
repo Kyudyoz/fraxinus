@@ -17,9 +17,12 @@
             @endif
             <div class="items">
                 <div class="container1">
-
-                    <a href="/create" class="btn btn-post mt-3 mb-3"><i class="fa-solid fa-plus"
-                            style="color: #ffffff;"></i> New Post</a>
+                    @can('user')    
+                    <a href="/create" class="btn btn-post mt-3 mb-3">
+                        <i class="fa-solid fa-plus" style="color: #ffffff;"></i> 
+                        New Post
+                    </a>
+                    @endcan
                     @if($posts->count())
                         <div class="row mt-2">
                             @foreach($posts as $post)

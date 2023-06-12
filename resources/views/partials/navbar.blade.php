@@ -30,7 +30,11 @@
           @endif
         </a>
         @if (auth()->check())
-        <a href="/userPosts"><i class="fa-solid fa-user fa-2xl"></i></a>
+        @can('user')
+          <a href="/userPosts"><i class="fa-solid fa-user fa-2xl"></i></a>
+          @elsecan('admin')
+          <a href="/delivReq"><i class="fa-solid fa-user fa-2xl"></i></a>
+          @endcan
         @else
         <a href="/signin"><i class="fa-solid fa-right-to-bracket fa-2xl"></i></a>
         @endif

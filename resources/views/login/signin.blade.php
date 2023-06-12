@@ -1,7 +1,7 @@
 @include('partials.header')
 
 
-<div class="forms main2">
+<div class="forms main4">
     <div class="forms-containerr mt-4">
       <div class="box1"></div>
       <div class="box2">

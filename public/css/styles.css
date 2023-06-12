@@ -33,7 +33,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 .forms .forms-containerr {
     display: flex;
@@ -443,7 +442,7 @@ body {
 }
 
 .main2 {
-    min-height: 70vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -462,6 +461,16 @@ body {
     background: url(/img/papan.jpg);
     background-size: cover;
     padding-bottom: 40px;
+}
+
+.main4 {
+    min-height: 100vh;
+    justify-content: center;
+    align-items: start;
+    background: url(/img/papan.jpg);
+    background-size: cover;
+    background-repeat: repeat-y;
+    padding-bottom: 20px;
 }
 
 .main-containerr {

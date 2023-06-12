@@ -12,12 +12,13 @@
             <hr />
             <p>Category: {{ $product->category }}</p>
             <p>Seller: {{ $product->user->name }}</p>
+            <p>Stock: {{ $product->qty }}</p>
             <hr />
             <p>{{ $product->description }}</p>
-            @if (auth()->user()->name != $product->user->name)
+            @if (auth()->user()->name != $product->user->name && !auth()->user()->is_admin)
             <div class="phone">
                 <a href="https://wa.me/{{ $product->user->phone }}">
-                    <h1><i class="fa-brands fa-whatsapp"></i>Hubungi Penjual</h1>
+                    <h1><i class="fa-brands fa-whatsapp"></i>Contact Seller</h1>
                 </a>
             </div>
             <form action="/wishlist/{{ $product->id }}" method="post">
@@ -26,8 +27,18 @@
                     <button type="submit"><i class="fa-solid fa-heart"></i>Wishlist</button>
                 </div>
             </form>
+            @if ($product->qty > 0)    
+            <div class="actions mb-2">
+                <a href="/buy/{{ $product->id }}" class="my-2"><button><i class="fa-solid fa-cart-shopping"></i>Buy Now</button></a>
+            </div>
+            @else
+            <div class="actions mb-2">
+                <button disabled='disabled'><i class="fa-solid fa-cart-shopping"></i> No Stock</button>
+            </div>
             @endif
-            @if (auth()->user()->name == $product->user->name)
+            
+            @endif
+            @if (auth()->user()->name == $product->user->name || auth()->user()->is_admin)
             <div class="actions">
                 <form action="/show/{{ $product->id }}" method="post" id="deleteForm">
                     @method('delete')
@@ -37,6 +48,8 @@
                     <button type="button" class="btn btn-danger" onclick="confirmDelete(event)">Delete Product</button>
                 </form>
             </div>
+            @endif
+            @if (auth()->user()->name == $product->user->name)
             <a href="/show/{{ $product->id }}/edit" class="mt-3">Edit This Product</a>
             @endif
             <a href="/home" class="mt-3">All Products</a>

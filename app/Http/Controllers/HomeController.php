@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buy;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Product;
@@ -48,7 +49,7 @@ class HomeController extends Controller
             'wishlistCount' => $wishlistCount,
             'active'=>'My Posts',
             'user'=>$user,
-            'posts' => Post::where('user_id', auth()->user()->id)->paginate(3)->withQueryString()
+            'posts' => Post::where('user_id', auth()->user()->id)->latest()->paginate(3)->withQueryString()
         ]);
     }
     
@@ -64,7 +65,42 @@ class HomeController extends Controller
             'wishlistCount' => $wishlistCount,
             'active'=>'My Products',
             'user'=>$user,
-            'products' => Product::where('user_id', auth()->user()->id)->paginate(3)->withQueryString()
+            'products' => Product::where('user_id', auth()->user()->id)->latest()->paginate(3)->withQueryString()
+        ]);
+    }
+
+    public function purchase(Request $request)
+    {
+        if (auth()->check()) {
+            $wishlistCount = Wishlist::where('user_id', auth()->user()->id)->count();
+        } else {
+            $wishlistCount = "";
+        }
+        $user = $request->user();
+        return view('user.purchase', [
+            'wishlistCount' => $wishlistCount,
+            'active'=>'purchase',
+            'user'=>$user,
+            'purchases' => Buy::where('user_id', $user->id)->latest()->paginate(1)->withQueryString()
+        ]);
+    }
+    
+    public function sale(Request $request)
+    {
+        if (auth()->check()) {
+            $wishlistCount = Wishlist::where('user_id', auth()->user()->id)->count();
+        } else {
+            $wishlistCount = "";
+        }
+        $user = $request->user();
+        $products = Product::where('user_id', auth()->user()->id)->latest()->pluck('id')->toArray();
+        $purchases = Buy::whereIn('product_id', $products)->latest()->paginate(1)->withQueryString();
+        return view('user.sale', [
+            'wishlistCount' => $wishlistCount,
+            'active'=>'sale',
+            'user'=>$user,
+            'products'=>$products,
+            'purchases' => $purchases,
         ]);
     }
 }

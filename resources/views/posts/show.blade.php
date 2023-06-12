@@ -10,13 +10,15 @@
                         @auth        
                         @if (auth()->user()->name == $post->user->name)
                         <a href="/posts/show/{{ $post->id }}/edit" class="btn btn-warning" style="vertical-align:bottom"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i> Edit</a>
+                        @endif 
+                        @if (auth()->user()->name == $post->user->name || auth()->user()->is_admin)
                         <form action="delete/{{ $post->id }}" method="post" class="d-inline" id="deleteForm">
                             @method('delete')
                             @csrf
                             <input type="hidden" name="confirmed" id="deleteConfirmed" value="0">
                             <button type="button" class="btn btn-danger" onclick="confirmDelete(event)" style="vertical-align: bottom"><i class="fa-solid fa-trash" style="color: #000000;"></i> Delete</button>
                           </form>
-                        @endif 
+                        @endif  
                         @endauth 
                     </div>
                     <div class="card-body">

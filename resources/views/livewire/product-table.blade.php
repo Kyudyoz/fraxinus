@@ -38,24 +38,17 @@
           <i class="fa-solid fa-users fa-2x"></i>
           <p>Community</p>
         </a>
+        @can('user')    
         <a href="/new" class="sell">
           <i class="fa-solid fa-circle-plus fa-2x"></i>
           <p>Sell Product</p>
         </a>
+        @endcan
       </div>
   
       <div class="items" >
         <div class="container1">
-      @if (session()->has('berhasil'))
-        <div class="alert alert-success col-lg-12 mb-3" role="alert">
-          {{ session('berhasil') }}
-        </div>
-      @endif
-      @if (session()->has('gagal'))
-        <div class="alert alert-danger col-lg-12 mb-3" role="alert">
-          {{ session('gagal') }}
-        </div>
-      @endif
+     
           @if ($products->count())
           <div class="row">
             @foreach ($products as $p)

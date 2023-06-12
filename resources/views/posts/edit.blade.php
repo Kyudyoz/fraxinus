@@ -8,8 +8,13 @@
       @method('put')
         @csrf
     <div class="form-floating text-dark text-muted"> 
-        <input type="text" name="title" id="title" class="form-control" value="{{ $post->title }}" />
+        <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{ $post->title }}" />
         <label for="title">Title</label>
+        @error('title')
+          <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+      @enderror
     </div>
     <div class="mt-2 mb-2 text-white">
       <label for="image">Post Image</label>

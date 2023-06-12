@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,5 +27,34 @@ class UserController extends Controller
 
         User::where('id', $id)->update($validatedData);
         return redirect('/userPosts');
+    }
+
+    public function edit($id)
+    {
+        if (auth()->check()) {
+            $wishlistCount = Wishlist::where('user_id', auth()->user()->id)->count();
+        } else {
+            $wishlistCount = "";
+        }
+        $user = User::find($id);
+        return view('user.edit', [
+            'user'=>$user,
+            'wishlistCount'=>$wishlistCount,
+            'active'=> 'setting'
+        ]);
+    }
+
+    public function updates(Request $request, $id)
+    {
+        $rules = [
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'address' => 'required',
+        ];
+        $validatedData = $request->validate($rules);
+
+        User::where('id', $id)->update($validatedData);
+        return redirect("user/$id/edit")->with('berhasil', 'Profle has been updated!');
     }
 }

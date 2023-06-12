@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buy;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Wishlist;
@@ -40,6 +41,7 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'category' => 'required',
             'price' => 'required',
+            'qty' => 'required',
             'image'=> 'image|file|max:1024',
             'description' => 'required'
         ];
@@ -53,7 +55,7 @@ class ProductController extends Controller
         $validatedData['user_id'] = auth()->user()->id;
 
         Product::where('id', $id)->update($validatedData);
-        return redirect('/home')->with('berhasil', 'Product has been updated!');
+        return redirect('/userProducts')->with('berhasil', 'Product has been updated!');
     }
 
     public function create()
@@ -74,6 +76,7 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'category' => 'required',
             'price' => 'required',
+            'qty' => 'required',
             'image'=> 'required|image|file|max:1024',
             'description' => 'required'
         ]);
@@ -81,18 +84,20 @@ class ProductController extends Controller
         $validatedData['user_id'] = auth()->user()->id;
         
         Product::create($validatedData);
-        return redirect('/home')->with('berhasil', 'New product has been added!');
+        return redirect('/userProducts')->with('berhasil', 'New product has been added!');
     }
 
     public function destroy($id)
     {
         $product = Product::find($id);
         $wishlist = Wishlist::where('product_id', $product->id);
+        $purchase = Buy::where('product_id', $product->id);
         if ($product->image) {
             Storage::delete($product->image);
         }
         $product->delete();
+        $purchase->delete();
         $wishlist->delete();
-        return redirect('/home')->with('berhasil', 'Product has been removed!');
+        return redirect('/userProducts')->with('berhasil', 'Product has been removed!');
     }
 }

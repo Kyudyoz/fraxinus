@@ -1,14 +1,15 @@
 @include('partials.header')
-<div class="forms main2" style="height: 110vh">
-    <div class="forms-containerr">
+<div class="forms main4">
+    <div class="forms-containerr mt-4">
       <div class="box1 my-4"></div>
-      <div class="box2 my-4" style="height:100vh">
+      <div class="box2 my-4">
         <h1>Sign Up</h1>
         <form action="/signup" method="post">
         @csrf
           <input type="text" name="name" id="name" placeholder="Name" />
           <input type="text" name="phone" id="phone" placeholder="Phone Number" />
           <input type="email" name="email" id="email" placeholder="Email" />
+          <input type="address" name="address" id="address" placeholder="Address" />
           <input
             type="password"
             name="password"
@@ -29,7 +30,6 @@
       </div>
     </div>
   </div>
-
   <script>
     document.getElementById("phone").addEventListener("input", function() {
   var input = this.value;

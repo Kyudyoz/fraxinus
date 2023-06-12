@@ -78,7 +78,7 @@ class PostController extends Controller
         
         Post::create($validatedData);
         
-        return redirect('/posts')->with('berhasil', 'Post has been successfully created!');
+        return redirect('/userPosts')->with('berhasil', 'Post has been successfully created!');
         
     
     }
@@ -155,7 +155,7 @@ class PostController extends Controller
         Post::where('id', $id)
         ->update($validatedData);
 
-        return redirect('/posts')->with('berhasil', 'Post has been updated!');
+        return redirect('/userPosts')->with('berhasil', 'Post has been updated!');
     }
 
     /**
@@ -169,6 +169,6 @@ class PostController extends Controller
             Storage::delete($post->image);
         }
         Post::destroy($post->id);
-        return redirect('/posts')->with('berhasil', 'Post has been removed!');
+        return redirect('/userPosts')->with('berhasil', 'Post has been removed!');
     }
 }

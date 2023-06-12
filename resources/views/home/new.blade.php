@@ -25,7 +25,16 @@
         @enderror
     </div>
     <div class="form-floating text-dark text-muted">
-        <select name="category" id="category" class="form-control">
+        <input type="text" name="qty" id="qty" class="form-control @error('qty') is-invalid @enderror" value="{{ old('qty') }}"/>
+        <label for="qty">Stock</label>
+        @error('qty')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+        @enderror
+    </div>
+    <div class="form-floating text-dark text-muted">
+        <select name="category" id="category" class="form-select">
           <option value="Indoors">Indoors</option>
           <option value="Outdoors">Outdoors</option>
           <option value="Seeds">Seeds</option>
