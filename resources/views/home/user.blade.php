@@ -3,16 +3,22 @@
 
 <div class="main2">
   <div class="main-containerr bg-white rounded pb-4 userBg">
-    @if (session()->has('berhasil'))
-    <div class="alert alert-success col-lg-12 mb-3" role="alert">
-      {{ session('berhasil') }}
-    </div>
-  @endif
-  @if (session()->has('gagal'))
-    <div class="alert alert-danger col-lg-12 mb-3" role="alert">
-      {{ session('gagal') }}
-    </div>
-  @endif
+      @if (session()->has('berhasil'))
+      <div class="alert alert-dismissible d-flex justify-content-center">
+        <div class="alert alert-success alert-dismissible col-lg-8 mb-3 d-flex justify-content-center" role="alert">
+          {{ session('berhasil') }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+       </div>
+      @endif
+      @if (session()->has('gagal'))
+      <div class="alert alert-dismissible d-flex justify-content-center">
+        <div class="alert alert-danger alert-dismissible col-lg-8 mb-3 d-flex justify-content-center" role="alert">
+          {{ session('gagal') }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+      @endif
     <div class="row mx-2 border-bottom border-black">
       <div class="col-md-3 my-2" style="overflow: hidden">
         <div class="pict">
@@ -25,7 +31,7 @@
               <input type="hidden" name="id" value="{{ $user->id }}">
               <input type="hidden" name="name" value="{{ $user->name }}">
               <input type="hidden" name="oldImage" value="{{ $user->image }}">
-              <div class="round">             
+              <div class="round">
                 <input type="file" name="image" id="image">
                 <i class="fa-solid fa-camera fa-xl"></i>
               </div>
@@ -35,12 +41,12 @@
                 </div>
               @enderror
             </div>
-            @else 
-            <div class="upload">   
+            @else
+            <div class="upload">
               <img src="/img/pp.jpg" title="profile" width="125" height="125">
               <input type="hidden" name="id" value="{{ $user->id }}">
               <input type="hidden" name="name" value="{{ $user->name }}">
-              <div class="round">             
+              <div class="round">
                 <input type="file" name="image" id="image">
                 <i class="fa-solid fa-camera fa-xl"></i>
               </div>
@@ -65,7 +71,7 @@
           <form action="/signout" method="post" class="ms-auto" style="width: max-content">
             @csrf
               <button class="nav-link text-decoration-none text-black" style="font-weight: 400;"><i class="fa-solid fa-right-from-bracket fa-md"></i>&nbsp;&nbsp;Logout</button>
-              <a href="/user/{{ $user->id }}/edit" class="mt-4 nav-link text-decoration-none text-black"><i class="fa-solid fa-gear fa-md"></i>&nbsp;&nbsp;Setting</a> 
+              <a href="/user/{{ $user->id }}/edit" class="mt-4 nav-link text-decoration-none text-black"><i class="fa-solid fa-gear fa-md"></i>&nbsp;&nbsp;Setting</a>
           </form>
         </div>
       </div>
@@ -85,7 +91,7 @@
           </li>
           <li class="nav-item" style="width: max-content">
             <a href="/userSale" class="text-secondary nav-link {{ ($active === "sale") ? 'active' : '' }}"><i class="fa-solid fa-money-bill-wave"></i> Sale</a>
-          </li>  
+          </li>
           @elsecan('admin')
           <li class="nav-item" style="width: max-content">
             <a href="/delivReq" class="text-secondary nav-link {{ ($active === "Delivery Requests") ? 'active' : '' }}"><i class="fa-solid fa-truck"></i> Delivery Request</a>
