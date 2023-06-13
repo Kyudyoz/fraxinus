@@ -11,9 +11,7 @@ use App\Http\Requests\UpdatePostRequest;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         if (auth()->check()) {
@@ -27,9 +25,7 @@ class PostController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         if (auth()->check()) {
@@ -39,13 +35,11 @@ class PostController extends Controller
         }
         return view('posts.create', [
             'wishlistCount' =>$wishlistCount,
-            
+
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -54,38 +48,36 @@ class PostController extends Controller
             'url' => 'max:255',
             'body' => 'required',
         ]);
-        
+
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('post-images');
         }
-        
+
         // Mengambil hanya ID video dari URL YouTube
         if ($request->url) {
             $url = $request->url;
             $videoId = null;
-            
+
             // Memeriksa pola URL YouTube yang valid
             if (preg_match('/^https?:\/\/(?:www\.)?youtube\.com\/watch\?(?=.*v=([a-zA-Z0-9_-]+))(?:\S+)?$/', $url, $matches)) {
                 $videoId = $matches[1]; // Mengambil ID video dari URL
             } elseif (preg_match('/^https?:\/\/(?:www\.)?youtu\.be\/([a-zA-Z0-9_-]+)(?:\S+)?$/', $url, $matches)) {
                 $videoId = $matches[1]; // Mengambil ID video dari URL singkat youtu.be
             }
-        
+
             $validatedData['url'] = $videoId;
         }
-        
+
         $validatedData['user_id'] = auth()->user()->id;
-        
+
         Post::create($validatedData);
-        
+
         return redirect('/userPosts')->with('berhasil', 'Post has been successfully created!');
-        
-    
+
+
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show($id)
     {
         if (auth()->check()) {
@@ -102,9 +94,7 @@ class PostController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit($id)
     {
         if (auth()->check()) {
@@ -119,9 +109,7 @@ class PostController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, $id)
     {
         $rules = [
@@ -141,14 +129,14 @@ class PostController extends Controller
         if ($request->url) {
             $url = $request->url;
             $videoId = null;
-            
+
             // Memeriksa pola URL YouTube yang valid
             if (preg_match('/^https?:\/\/(?:www\.)?youtube\.com\/watch\?(?=.*v=([a-zA-Z0-9_-]+))(?:\S+)?$/', $url, $matches)) {
                 $videoId = $matches[1]; // Mengambil ID video dari URL
             } elseif (preg_match('/^https?:\/\/(?:www\.)?youtu\.be\/([a-zA-Z0-9_-]+)(?:\S+)?$/', $url, $matches)) {
                 $videoId = $matches[1]; // Mengambil ID video dari URL singkat youtu.be
             }
-        
+
             $validatedData['url'] = $videoId;
         }
         $validatedData['user_id'] = auth()->user()->id;
@@ -158,9 +146,7 @@ class PostController extends Controller
         return redirect('/userPosts')->with('berhasil', 'Post has been updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy($id)
     {
         $post = Post::find($id);

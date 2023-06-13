@@ -12,7 +12,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\WishlistController;
 
-
+//Home
 
 Route::get('/signup', [RegisterController::class, 'index'])->middleware('guest');
 
