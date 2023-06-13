@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('name');
             $table->string('image')->nullable();
-            $table->string('price');
+            $table->integer('price');
             $table->integer('qty');
             $table->string('category');
             $table->text('description');
