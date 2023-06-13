@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create ([
-            
+
               'email'=> "raihan@gmail.com",
               'password'=> bcrypt("12345"),
               'name'=> "Raihan Ghani Perangin-angin",
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
               'is_admin'=> false,
           ]);
         User::create ([
-            
+
               'email'=> "iqbal@gmail.com",
               'password'=> bcrypt("12345"),
               'name'=> "Muhammad Iqbal Firdaus",
@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
               'is_admin'=> false,
           ]);
         User::create ([
-            
+
               'email'=> "akhdan@gmail.com",
               'password'=> bcrypt("12345"),
               'name'=> "Akhdan Al Wafi",
@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
           ]);
 
         User::create ([
-            
+
               'email'=> "arif@gmail.com",
               'password'=> bcrypt("12345"),
               'name'=> "Muhammad Arif Firdaus",
@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
               'is_admin'=> false,
           ]);
         User::create ([
-            
+
               'email'=> "sabrian@gmail.com",
               'password'=> bcrypt("12345"),
               'name'=> "Sabrian Maulana",
@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
               'is_admin'=> false,
           ]);
         User::create ([
-            
+
               'email'=> "admin@gmail.com",
               'password'=> bcrypt("12345"),
               'name'=> "Administrator",
