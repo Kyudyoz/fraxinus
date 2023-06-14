@@ -21,7 +21,7 @@ class UserSale extends Component
         }
         $user = auth()->user();
         $products = Product::where('user_id', auth()->user()->id)->latest()->pluck('id')->toArray();
-        $purchases = Buy::whereIn('product_id', $products)->latest()->paginate(1)->withQueryString();
+        $purchases = Buy::whereIn('product_id', $products)->latest()->paginate(1);
         return view('livewire.user-sale',[
             'wishlistCount' => $wishlistCount,
             'active'=>'sale',

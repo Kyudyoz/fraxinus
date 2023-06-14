@@ -12,7 +12,8 @@
                                 <div class="card-body">
                                     <h2 class="card-title">{{ $post->title }}</h2>
                                     <small class="card-text text-muted">
-                                        {{ $post->created_at->diffForHumans() }}</small>
+                                        {{ $post->created_at->diffForHumans() }}
+                                    </small>
                                     <hr />
                                     <p class="card-text" style="min-height: 50px;max-height:50px; overflow:hidden;display: -webkit-box;
     -webkit-line-clamp: 2;

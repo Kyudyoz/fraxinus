@@ -21,7 +21,7 @@ class AdminController extends Controller
             'wishlistCount' => $wishlistCount,
             'user'=>$user,
             "active" => "Delivery Requests",
-            'purchases' => Buy::where('delivery', 'yes')->latest()->paginate(1)->withQueryString()
+            'purchases' => Buy::where('delivery', 'yes')->latest()->paginate(1)
         ]);
     }
     public function history()
@@ -38,7 +38,7 @@ class AdminController extends Controller
             'user'=>$user,
             "active" => "Transaction History",
             'purchases' => Buy::orderByRaw("CASE WHEN status = 'Deliver' THEN 0 ELSE 1 END")
-            ->orderBy('status')->latest()->paginate(1)->withQueryString()
+            ->orderBy('status')->latest()->paginate(1)
         ]);
     }
 }

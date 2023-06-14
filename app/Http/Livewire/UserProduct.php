@@ -23,7 +23,7 @@ class UserProduct extends Component
             'wishlistCount' => $wishlistCount,
             'active'=>'My Products',
             'user'=>$user,
-            'products' => Product::where('user_id', auth()->user()->id)->latest()->paginate(3)->withQueryString()
+            'products' => Product::where('user_id', auth()->user()->id)->latest()->paginate(3)
         ]);
     }
 }

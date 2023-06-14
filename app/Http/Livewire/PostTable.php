@@ -25,8 +25,7 @@ class PostTable extends Component
                 $query->where('title', 'like', '%' . $this->search . '%');
             })
             ->filter(request(['searchPost']))
-            ->paginate(3)
-            ->withQueryString(),
+            ->paginate(3),
             "wishlistCount"=>$wishlistCount
         ]);
     }

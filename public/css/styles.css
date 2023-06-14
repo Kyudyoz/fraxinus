@@ -769,6 +769,7 @@ a {
     list-style: none;
     border-radius: 0.25rem;
 }
+
 .page-link {
     color: var(--color-green);
     background-color: #ffffff;

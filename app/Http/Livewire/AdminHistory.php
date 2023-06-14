@@ -24,7 +24,7 @@ class AdminHistory extends Component
             'user'=>$user,
             "active" => "Transaction History",
             'purchases' => Buy::orderByRaw("CASE WHEN status = 'Deliver' THEN 0 ELSE 1 END")
-            ->orderBy('status')->latest()->paginate(1)->withQueryString()
+            ->orderBy('status')->latest()->paginate(1)
         ]);
     }
 }

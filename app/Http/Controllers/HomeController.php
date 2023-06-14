@@ -20,7 +20,7 @@ class HomeController extends Controller
         }
         return view('home.home',[
             "products" =>Product::latest()
-            ->filter(request(['search', 'category']))->paginate(3)->withQueryString(),
+            ->filter(request(['search', 'category']))->paginate(3),
             'wishlistCount' => $wishlistCount
         ]);
     }
@@ -33,7 +33,7 @@ class HomeController extends Controller
             $wishlistCount = "";
         }
         $user = $request->user();
-        $wishlists = $user->wishlists()->latest()->paginate(3)->withQueryString();
+        $wishlists = $user->wishlists()->latest()->paginate(3);
         return view('home.wishlist', compact('wishlists','wishlistCount'));
     }
 
@@ -49,7 +49,7 @@ class HomeController extends Controller
             'wishlistCount' => $wishlistCount,
             'active'=>'My Posts',
             'user'=>$user,
-            'posts' => Post::where('user_id', auth()->user()->id)->latest()->paginate(3)->withQueryString()
+            'posts' => Post::where('user_id', auth()->user()->id)->latest()->paginate(3)
         ]);
     }
     
@@ -65,7 +65,7 @@ class HomeController extends Controller
             'wishlistCount' => $wishlistCount,
             'active'=>'My Products',
             'user'=>$user,
-            'products' => Product::where('user_id', auth()->user()->id)->latest()->paginate(3)->withQueryString()
+            'products' => Product::where('user_id', auth()->user()->id)->latest()->paginate(3)
         ]);
     }
 
@@ -81,7 +81,7 @@ class HomeController extends Controller
             'wishlistCount' => $wishlistCount,
             'active'=>'purchase',
             'user'=>$user,
-            'purchases' => Buy::where('user_id', $user->id)->latest()->paginate(1)->withQueryString()
+            'purchases' => Buy::where('user_id', $user->id)->latest()->paginate(1)
         ]);
     }
     
@@ -94,7 +94,7 @@ class HomeController extends Controller
         }
         $user = $request->user();
         $products = Product::where('user_id', auth()->user()->id)->latest()->pluck('id')->toArray();
-        $purchases = Buy::whereIn('product_id', $products)->latest()->paginate(1)->withQueryString();
+        $purchases = Buy::whereIn('product_id', $products)->latest()->paginate(1);
         return view('user.sale', [
             'wishlistCount' => $wishlistCount,
             'active'=>'sale',

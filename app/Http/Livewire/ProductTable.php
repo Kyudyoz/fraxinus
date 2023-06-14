@@ -25,8 +25,7 @@ class ProductTable extends Component
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
             ->filter(request(['search','category']))
-            ->paginate(3)
-            ->withQueryString(),
+            ->paginate(3),
             "wishlistCount" => $wishlistCount
         ]);
     }

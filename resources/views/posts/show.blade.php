@@ -27,7 +27,7 @@
                         <p class="card-text">
                             <small class="text-muted"> By 
                                 <strong>{{ $post->user->name}}</strong>
-                                {{ $post->created_at->diffForHumans() }}
+                                {{ $post->created_at->diffForHumans() }} 
                             </small>
                         </p>
                         <hr/>
@@ -38,9 +38,25 @@
                         <article class="my-3 fs-6">
                             {!! $post->body !!}
                         </article>
+                        <hr>
                     </div>
+                    <small class="mx-3">Comments Section</small>
+                    @foreach ($comments as $comment)    
+                        <small class="mx-2"><strong class="mx-2">{{ $comment->user->name }} :</strong>{{ $comment->comment }}</small>       
+                    @endforeach
+                    <div class="comment mx-3 my-1 d-flex">
+                        <form action="/comment/{{ $post->id }}" method="post" class="w-100 d-flex">
+                            @csrf
+                            <input type="text" id="comment" name="comment" class="rounded py-2 px-2 flex-grow-1 form-control form-control-sm" autocomplete="off" placeholder="Comment...">
+                            <button type="submit" class="d-inline btn btn-post ml-1" style="color:#000000;"><i class="fa-solid fa-envelope-circle-check"></i></button>
+                        </form> 
+                    </div>
+                    
+            <div class="d-flex justify-content-start mx-3">
+                {{ $comments->links() }}
+            </div>
                     <a href="/posts" class=" mt-2 mb-2 mx-3 btn btn-post">Back to posts</a>
-                </div>
+            </div>
 </div>
 
 <!-- Modal Konfirmasi Delete -->

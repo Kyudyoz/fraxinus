@@ -23,7 +23,7 @@ class UserPost extends Component
             'wishlistCount' => $wishlistCount,
             'active'=>'My Posts',
             'user'=>$user,
-            'posts' => Post::where('user_id', auth()->user()->id)->latest()->paginate(3)->withQueryString()
+            'posts' => Post::where('user_id', auth()->user()->id)->latest()->paginate(3)
         ]);
     }
 }

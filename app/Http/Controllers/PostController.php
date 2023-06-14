@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comment;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -19,9 +20,10 @@ class PostController extends Controller
         } else {
             $wishlistCount = "";
         }
+        $posts = Post::latest()->filter(request(['searchPost']))->paginate(3);
         return view('posts.index',[
             'wishlistCount' => $wishlistCount,
-            "posts"=> Post::latest()->filter(request(['searchPost']))->paginate(3)->withQueryString()
+            "posts"=> $posts,
         ]);
     }
 
@@ -87,10 +89,12 @@ class PostController extends Controller
         }
         $post = Post::find($id);
         $user = User::find($id);
+        $comments = Comment::where('post_id', $post->id)->latest()->simplePaginate(5);
         return view('posts.show',[
             "post"=>$post,
             'user'=>$user,
             'wishlistCount' =>$wishlistCount,
+            'comments' => $comments
         ]);
     }
 

@@ -23,7 +23,7 @@ class AdminDelivery extends Component
             'wishlistCount' => $wishlistCount,
             'user'=>$user,
             "active" => "Delivery Requests",
-            'purchases' => Buy::where('delivery', 'yes')->latest()->paginate(1)->withQueryString()
+            'purchases' => Buy::where('delivery', 'yes')->latest()->paginate(1)
         ]);
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\WishlistController;
@@ -54,6 +55,8 @@ Route::get('/create', [PostController::class, 'create'])->middleware('auth');
 Route::post('/store', [PostController::class, 'store']);
 
 Route::get('/posts/show/{id}', [PostController::class, 'show']);
+
+Route::post('/comment/{id}', [CommentController::class, 'addToComment']);
 
 Route::get('/posts/show/{id}/edit', [PostController::class, 'edit']);
 
