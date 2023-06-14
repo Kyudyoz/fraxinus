@@ -19,7 +19,7 @@ class AdminDelivery extends Component
             $wishlistCount = "";
         }
         $user = auth()->user();
-        return view('livewire.user-product',[
+        return view('livewire.admin-delivery',[
             'wishlistCount' => $wishlistCount,
             'user'=>$user,
             "active" => "Delivery Requests",

@@ -19,7 +19,7 @@ class UserPurchase extends Component
             $wishlistCount = "";
         }
         $user = auth()->user();
-        return view('livewire.user-product',[
+        return view('livewire.user-purchase',[
             'wishlistCount' => $wishlistCount,
             'active'=>'purchase',
             'user'=>$user,

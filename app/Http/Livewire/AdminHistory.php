@@ -19,7 +19,7 @@ class AdminHistory extends Component
             $wishlistCount = "";
         }
         $user = auth()->user();
-        return view('livewire.user-product',[
+        return view('livewire.admin-history',[
             'wishlistCount' => $wishlistCount,
             'user'=>$user,
             "active" => "Transaction History",
