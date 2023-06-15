@@ -63,7 +63,6 @@
     </div>
       <button type="submit" class="btn btn-primary mt-3 mb-3">Add Product</button>
     </form>
-    <a style="margin-bottom: 1rem; color:#cc501c" href="/home" class="text-decoration-none mb-2">All Products</a>
   </div>
 </div>
 

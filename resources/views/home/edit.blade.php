@@ -46,8 +46,6 @@
     </div>
       <button type="submit" class="btn btn-primary mt-3 mb-3">Save Changes</button>
     </form>
-    <a style="margin-bottom: 1rem; color:#cc501c" href="/home" class="text-decoration-none mb-2">All Products</a>
-    <a href="/show/{{ $product->id }}" class="text-decoration-none mx-4 mb-2" style="color: #cc501c">Back</a>
   </div>
 </div>
 
