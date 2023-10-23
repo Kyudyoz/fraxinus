@@ -22,7 +22,7 @@
     <div class="row mx-2 border-bottom border-black">
       <div class="col-md-3 my-2" style="overflow: hidden">
         <div class="pict">
-          <form action="/userProfile/update" id="form" method="post" enctype="multipart/form-data" class="">
+          <form action="/userProfile/update" id="form" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
             @if ($user->image)
