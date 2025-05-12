@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    
+
     public function show($id)
     {
         if (auth()->check()) {
@@ -21,7 +21,7 @@ class ProductController extends Controller
         }
         $product = Product::find($id);
         $user = User::find($id);
-        return view('home.show', compact('product','user','wishlistCount'));
+        return view('home.show', compact('product', 'user', 'wishlistCount'));
     }
 
     public function edit($id)
@@ -32,7 +32,7 @@ class ProductController extends Controller
             $wishlistCount = "";
         }
         $product = Product::find($id);
-        return view('home.edit', compact('product','wishlistCount'));
+        return view('home.edit', compact('product', 'wishlistCount'));
     }
 
     public function update(Request $request, $id)
@@ -42,7 +42,7 @@ class ProductController extends Controller
             'category' => 'required',
             'price' => 'required',
             'qty' => 'required',
-            'image'=> 'image|file|max:1024',
+            'image' => 'image|file|max:1024',
             'description' => 'required'
         ];
         $validatedData = $request->validate($rules);
@@ -50,7 +50,7 @@ class ProductController extends Controller
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $validatedData['image'] = $request->file('image')->store('product-images');
+            $validatedData['image'] = $request->file('image')->store('product-images', 'public');
         }
         $validatedData['user_id'] = auth()->user()->id;
 
@@ -65,7 +65,7 @@ class ProductController extends Controller
         } else {
             $wishlistCount = "";
         }
-        return view('home.new',[
+        return view('home.new', [
             'wishlistCount' => $wishlistCount
         ]);
     }
@@ -77,12 +77,12 @@ class ProductController extends Controller
             'category' => 'required',
             'price' => 'required',
             'qty' => 'required',
-            'image'=> 'required|image|file|max:1024',
+            'image' => 'required|image|file|max:1024',
             'description' => 'required'
         ]);
-        $validatedData['image'] = $request->file('image')->store('product-images');
+        $validatedData['image'] = $request->file('image')->store('product-images', 'public');
         $validatedData['user_id'] = auth()->user()->id;
-        
+
         Product::create($validatedData);
         return redirect('/userProducts')->with('berhasil', 'New product has been added!');
     }

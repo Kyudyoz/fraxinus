@@ -21,9 +21,9 @@ class PostController extends Controller
             $wishlistCount = "";
         }
         $posts = Post::latest()->filter(request(['searchPost']))->paginate(3);
-        return view('posts.index',[
+        return view('posts.index', [
             'wishlistCount' => $wishlistCount,
-            "posts"=> $posts,
+            "posts" => $posts,
         ]);
     }
 
@@ -36,7 +36,7 @@ class PostController extends Controller
             $wishlistCount = "";
         }
         return view('posts.create', [
-            'wishlistCount' =>$wishlistCount,
+            'wishlistCount' => $wishlistCount,
 
         ]);
     }
@@ -52,7 +52,7 @@ class PostController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $validatedData['image'] = $request->file('image')->store('post-images');
+            $validatedData['image'] = $request->file('image')->store('post-images', 'public');
         }
 
         // Mengambil hanya ID video dari URL YouTube
@@ -75,8 +75,6 @@ class PostController extends Controller
         Post::create($validatedData);
 
         return redirect('/userPosts')->with('berhasil', 'Post has been successfully created!');
-
-
     }
 
 
@@ -90,10 +88,10 @@ class PostController extends Controller
         $post = Post::find($id);
         $user = User::find($id);
         $comments = Comment::where('post_id', $post->id)->latest()->simplePaginate(5);
-        return view('posts.show',[
-            "post"=>$post,
-            'user'=>$user,
-            'wishlistCount' =>$wishlistCount,
+        return view('posts.show', [
+            "post" => $post,
+            'user' => $user,
+            'wishlistCount' => $wishlistCount,
             'comments' => $comments
         ]);
     }
@@ -107,9 +105,9 @@ class PostController extends Controller
             $wishlistCount = "";
         }
         $post = Post::find($id);
-        return view('posts.edit',[
-            "post"=>$post,
-            'wishlistCount' =>$wishlistCount,
+        return view('posts.edit', [
+            "post" => $post,
+            'wishlistCount' => $wishlistCount,
         ]);
     }
 
@@ -117,8 +115,8 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'title' =>'required|max:255',
-            'image'=>'image|file|max:1024',
+            'title' => 'required|max:255',
+            'image' => 'image|file|max:1024',
             'url' => 'max:255',
             'body' => 'required',
         ];
@@ -127,7 +125,7 @@ class PostController extends Controller
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $validatedData['image'] = $request->file('image')->store('post-images');
+            $validatedData['image'] = $request->file('image')->store('post-images', 'public');
         }
         // Mengambil hanya ID video dari URL YouTube
         if ($request->url) {
@@ -145,7 +143,7 @@ class PostController extends Controller
         }
         $validatedData['user_id'] = auth()->user()->id;
         Post::where('id', $id)
-        ->update($validatedData);
+            ->update($validatedData);
 
         return redirect('/userPosts')->with('berhasil', 'Post has been updated!');
     }
